@@ -1,7 +1,7 @@
 import random
 from math import sin
 import bisect
-
+from random import randint
 populationSize = 10
 
 class Individual:
@@ -35,8 +35,16 @@ class Individual:
 def selection(population, bestFraction=0.5):
     return population[int(len(population) * bestFraction):]
 
+def crossover(pop):
+    i, j = randint(0, len(pop)), randint(0, len(pop))
+####TODO
+    return newIndividual
+
 def nextGeneration(populationn):
-    return newGeneration
+    newGeneration = []
+    for i in range(0, populationSize):
+        newIndividual = crossover(populationn)
+        return newGeneration
 
 def mutation(populationn):
     return False
@@ -50,15 +58,15 @@ for i in population:
 
 print("\n\n")
 
-for generation in range(0, 3):
-    population = selection(population)
-    nextGeneration(population)
-    mutation(population)
-    for it in population:
-        print(it.mapToRange())
-    print("\n")
+# for generation in range(0, 3):
+#     population = selection(population)
+#     nextGeneration(population)
+#     mutation(population)
+#     for it in population:
+#         print(it.mapToRange())
+#     print("\n")
 
-
+print(type(population[0].chromosome))
 
 
 
